@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
             }
         ]
     })
-        .then(PostInfo => res.json(PostInfo))
+        .then(postInfo => res.json(postInfo))
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -61,12 +61,12 @@ router.get('/:id', (req, res) => {
             }
         ]
     })
-        .then(PostInfo => {
-            if (!PostInfo) {
+        .then(postInfo => {
+            if (!postInfo) {
                 res.status(404).json({ message: 'No post found with this id' });
                 return;
             }
-            res.json(PostInfo);
+            res.json(postInfo);
         })
         .catch(err => {
             console.log(err);
@@ -81,7 +81,7 @@ router.post('/', withAuth, (req, res) => {
         title: req.body.title,
         user_id: req.session.user_id
       })
-        .then(PostInfo => res.json(PostInfo))
+        .then(postInfo => res.json(postInfo))
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -102,12 +102,12 @@ router.put('/:id', withAuth, (req, res) => {
             }
         }
     )
-        .then(PostInfo => {
-            if (!PostInfo) {
+        .then(postInfo => {
+            if (!postInfo) {
                 res.status(404).json({ message: 'No post found with this id' });
                 return;
             }
-            res.json(PostInfo);
+            res.json(postInfo);
         })
         .catch(err => {
             console.log(err);
