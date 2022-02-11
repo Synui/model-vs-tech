@@ -55,7 +55,7 @@ router.get('/:id', (req, res) => {
 });
 
 // POST create one user - /api/users
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
     User.create({
         username: req.body.username,
         email: req.body.email,
@@ -67,7 +67,7 @@ router.post('/', withAuth, (req, res) => {
             req.session.username = userInfo.username;
             req.session.loggedIn = true;
 
-            res.json(userInfo)
+            res.json(userInfo);
         });
     })
     .catch(err => {
@@ -77,7 +77,7 @@ router.post('/', withAuth, (req, res) => {
 });
 
 // POST authorize user in login - /api/users/login
-router.post('/login', withAuth, (req, res) => {
+router.post('/login', (req, res) => {
     User.findOne({
         where: {
             email: req.body.email
