@@ -8,7 +8,6 @@ router.get('/', (req, res) => {
         order: [['created_at', 'DESC']],
         attributes: [
             'id',
-            'post_url',
             'title',
             'created_at',
         ],
@@ -42,7 +41,6 @@ router.get('/:id', (req, res) => {
         },
         attributes: [
             'id',
-            'post_url',
             'title',
             'created_at',
         ],
@@ -77,7 +75,6 @@ router.get('/:id', (req, res) => {
 // POST one post - /api/posts/
 router.post('/', withAuth, (req, res) => {
     Post.create({
-        post_url: req.body.post_url,
         title: req.body.title,
         user_id: req.session.user_id
       })
@@ -93,7 +90,6 @@ router.put('/:id', withAuth, (req, res) => {
     Post.update(
         {
             title: req.body.title,
-            post_url: req.body.post_url,
             user_id: req.body.user_id
         },
         {

@@ -18,14 +18,6 @@ Post.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        // url of the post
-        post_url: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                isURL: true
-            }
-        },
         // user that made the post
         user_id: {
             type: DataTypes.INTEGER,
