@@ -18,6 +18,11 @@ Post.init(
             type: DataTypes.STRING,
             allowNull: false
         },
+        // text for the pst content
+        content: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         // user that made the post
         user_id: {
             type: DataTypes.INTEGER,

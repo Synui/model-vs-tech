@@ -8,7 +8,8 @@ router.get('/', (req, res) => {
         attributes: [
             'id',
             'title',
-            'created_at',
+            'content',
+            'created_at'
         ],
         include: [
             {
@@ -25,8 +26,8 @@ router.get('/', (req, res) => {
             }
         ]
     })
-        .then(dbPostData => {
-            const posts = dbPostData.map(post => post.get({ plain: true }));
+        .then(postInfo => {
+            const posts = postInfo.map(post => post.get({ plain: true }));
             res.render('homepage', {
                 posts,
                 loggedIn: req.session.loggedIn
@@ -46,7 +47,8 @@ router.get('/post/:id', (req, res) => {
       attributes: [
         'id',
         'title',
-        'created_at',
+        'content',
+        'created_at'
       ],
       include: [
         {
@@ -63,14 +65,14 @@ router.get('/post/:id', (req, res) => {
         }
       ]
     })
-      .then(dbPostData => {
-        if (!dbPostData) {
+      .then(postInfo => {
+        if (!postInfo) {
           res.status(404).json({ message: 'No post found with this id' });
           return;
         }
   
         // serialize the data
-        const post = dbPostData.get({ plain: true });
+        const post = postInfo.get({ plain: true });
   
         // pass data to template
         res.render('single-post', {
