@@ -23,7 +23,7 @@ body {
 
 }
 
-nav a {
+nav a, nav button {
   text-decoration: none;
   color: var(--nav-color);
   font-size: 26px;
@@ -52,6 +52,32 @@ button {
   cursor: pointer;
   border-radius: 5px;
   margin-bottom: 10px;
+  width: 100%;
+}
+
+/* .logsign {
+  text-align: center;
+} */
+
+.login-button, 
+.signup-button, 
+.new-post-button,
+.comment-button,
+.save-post-button,
+.add-comment-button {
+  background-color: rgba(38, 22, 107, 0.74);
+  border: 0;
+  padding: 1%;
+  color: white;
+  font-weight: bold;
+  font-family: sans-serif;
+  transition: background-color 0.1s;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 20%;
+  font-size: 20px;
+  margin: auto;
 }
 
 button:hover {
@@ -80,13 +106,22 @@ input:focus {
   border: 1px solid var(--hover-color);
 }
 
-input[type=text] {
+input[type=text],
+input[type=password] {
   color: var(--main-color);
+  font-size: 20px
 }
 
 textarea {
   min-width: 100%;
   min-height: 100px;
+}
+
+textarea[type=text],
+textarea[name=comment-body],
+textarea[name=post-body] {
+  color: var(--main-color);
+  font-size: 20px;
 }
 
 form > div {
@@ -123,9 +158,18 @@ main {
 
 ol li {
   list-style: none;
+  border-radius: 14px;
+  margin: 20px 0;
+  padding: 15px 15px 10px 15px;
+  background-color: rgba(85, 19, 19, 0.123)
 }
 
-.btn-log {
+.edit-text {
+  color: var(--main-color);
+  font-size: 20px;
+}
+
+.button-log {
   background: none;
   border: none;
   padding: 0;
@@ -135,36 +179,38 @@ ol li {
   font-size: 100%;
   font-weight: bold;
   transition: color 0.1s;
-  margin: 0 16px;
   font-size: 26px;
   font-family: sans-serif;
+  display: contents;
 }
 
-.btn-log:hover {
+.button-log:hover {
   background: none;
   color: var(--hover-color);
 }
 
-.delete-post-btn {
+.delete-post-button,
+.delete-comment-button {
   background-color: #810505;
+  padding: 1%;
+  color: white;
+  font-weight: bold;
+  font-family: sans-serif;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 15px auto;
+  width: 20%;
+  font-size: 20px;
 }
 
-.delete-post-btn:hover {
+.delete-post-button:hover,
+.delete-comment-button:hover {
   background-color: var(--hover-color);
 }
 
 .post {
-  list-style: none;
-  border-radius: 14px;
-  margin: 20px 0;
-  padding: 15px 15px 10px 15px;
-  background-color: rgba(85, 19, 19, 0.123)
-}
-
-.post span {
-  font-style: italic;
   font-size: 90%;
-  color: #7d7d7d;
+  color: var(--main-color);
 }
 
 .comment {
@@ -196,7 +242,7 @@ ol li {
 }
 
 .edit-post-form, .comment-form {
-  width: 80%;
+  /* width: 80%; */
   margin: auto;
   text-align: center;
   display: flex;
@@ -212,6 +258,7 @@ ol li {
 .comment-post {
   font-size: 20px;
   font-weight: bold;
+  padding-bottom: 15px;
 }
 
 .content-post {

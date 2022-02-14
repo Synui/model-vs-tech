@@ -1,5 +1,5 @@
 <article>
-  <a href="/dashboard"> &larr; Back to dashboard</a>
+  <a href="/dashboard" class="edit-text"> &larr; Back to dashboard</a>
   <h2>
     Edit Post
   </h2>
@@ -7,10 +7,10 @@
       <input name="post-title" type="text" id="post-title" value="{{post.title}}" />
       <textarea name="post-body" id="post-body">{{post.content}}</textarea>
     <div>
-      <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
+      <a href="/post/{{post.id}}" class="edit-text">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
     </div>
-    <button type="submit">Save post</button>
-    <button type="button" class="delete-post-btn">Delete post</button>
+    <button type="submit" class="save-post-button">Save Post</button>
+    <button type="button" class="delete-post-button">Delete Post</button>
   </form>
 </article>
 
@@ -20,12 +20,16 @@
   </div>
 
   <div>
-    <button type="submit">add comment</button>
+    <button type="submit" class="add-comment-button">Add Comment</button>
   </div>
 </form>
 
+
 {{> comments post.comments}}
+  {{!-- <button type="button" class="delete-comment-button">Delete Comment</button> --}}
+
 
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>
 <script src="/javascript/add-comment.js"></script>
+<script src="/javascript/delete-comment.js"></script>
