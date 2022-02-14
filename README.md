@@ -5,7 +5,7 @@
 - [Description](#description)
 - [Installation](#installation)
 - [Technologies](#technologies)
-- [Video](#video)
+- [Image](#image)
 
 ## Description
 
@@ -14,7 +14,7 @@ This website allows a user to make posts with titles and content. The subject ma
 
 ## Installation
 
-Deployable website: 
+Deployable website: https://model-vs-tech.herokuapp.com/
 
 ## Technologies
 
@@ -29,6 +29,6 @@ Deployable website:
 - mysql2
 - sequelize
 
-## Video
+## Image
 
-![Video](
+![Image](/assets/model-vs-tect-image.PNG)
